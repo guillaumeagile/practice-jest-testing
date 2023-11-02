@@ -17,3 +17,8 @@ bin-release/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 node_modules/
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/practice-jest-testing.iml
+/.idea/vcs.xml
+/yarn.lock
