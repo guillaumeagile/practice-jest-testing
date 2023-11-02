@@ -26,8 +26,13 @@ test('compose of three functions', () => {
     expect(compose(multTwo, addOne) (5) ).toBe(12)
 })
 
-const compose2 = (...f) => (a) => f[0](a)
+
+
+
+const compose2 = (...funs) => (a) => funs.reduceRight((res, fn) => fn(res), a)
 test('compose of three functions', () => {
-    expect(compose2(multTwo, addOne, power) (5) ).toBe(144)
+    expect(compose2(power, multTwo, addOne) (5) ).toBe(144)
+    expect(compose2(addOne) (5) ).toBe(6)
+    expect(compose2() (5) ).toBe(5)
 })
 
