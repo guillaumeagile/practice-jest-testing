@@ -3,8 +3,11 @@ const addOne = (a) => a + 1
 const multTwo = (a) => a * 2
 const addOneMultTwo = (a) => multTwo(addOne(a))
 
+const power = (a) => a * a
 
-
+test('should return 25', () => {
+    expect(power(5) ).toBe(25)
+})
 
 // returns 12
 
@@ -18,3 +21,13 @@ const addOneMultTwoComposed = compose(multTwo, addOne)
 test('compose of two functions', () => {
     expect(addOneMultTwoComposed(5)).toBe(12)
 })
+
+test('compose of three functions', () => {
+    expect(compose(multTwo, addOne) (5) ).toBe(12)
+})
+
+const compose2 = (...f) => (a) => f[0](a)
+test('compose of three functions', () => {
+    expect(compose2(multTwo, addOne, power) (5) ).toBe(144)
+})
+
