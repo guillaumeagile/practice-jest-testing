@@ -41,11 +41,25 @@ var officers = [
 // What you need
 var officersId = [20, 24, 56, 88]
 
+var officersId2 = [
+    { id: 20 },
+    { id: 24 },
+    { id: 56 },
+    { id: 88 }
+];
+
 
 const listOfIds = (list) => list.map(e => e.id);
 
+const listOfIds2 = (list) => list.flatMap(e => [{"id": e.id}]);
+
+
 test('should return a list of Ids', () => {
     expect(listOfIds(officers)).toStrictEqual(officersId)
+})
+
+test('should return a list of Ids', () => {
+    expect(listOfIds2(officers)).toStrictEqual(officersId2)
 })
 
 const filtrerLesPairs = (list) => list;
