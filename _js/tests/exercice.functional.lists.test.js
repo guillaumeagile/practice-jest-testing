@@ -2,7 +2,15 @@
 
 var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
 
-const imprimerLesNomes = () => console.log("ooooh");
+const imprimerLesNames = (list) => list.forEach((element) => console.log(element));
+
+test('imprime les noms', () => {
+    console.log = jest.fn();
+    imprimerLesNames(names)
+    // The first argument of the first call to the function was 'hello'
+    expect(console.log.mock.calls[0][0]).toBe('Ben');
+    expect(console.log.mock.calls[1][0]).toBe('Jafar');
+})
 
 
 const numbers = [1, 2, 3, 4, 5];
