@@ -17,11 +17,18 @@ const numbers = [1, 2, 3, 4, 5];
 
 const toutMultiplierPar2 = (list) => list.map((e) => e*2);
 
+
 test('should multiply by two', () => {
     expect(toutMultiplierPar2(numbers) ).toEqual([2, 4, 6, 8, 10])
 })
 
-const toutMultiplierParN = (list, n) => list;
+const toutMultiplierParN = (list, n) => list.map(e => e*n);
+
+test('should multiply by n', () => {
+    expect(toutMultiplierParN(numbers, 5) ).toEqual([5,10,15,20,25])
+})
+
+
 
 // https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d
 // What you have
@@ -35,9 +42,17 @@ var officers = [
 var officersId = [20, 24, 56, 88]
 
 
+const listOfIds = (list) => list.map(e => e.id);
+
+test('should return a list of Ids', () => {
+    expect(listOfIds(officers)).toStrictEqual(officersId)
+})
+
 const filtrerLesPairs = (list) => list;
 
-
+test('should filter pairs', () => {
+    expect(toutMultiplierParN(numbers, 5) ).toEqual([5,10,15,20,25])
+})
 
 
 
