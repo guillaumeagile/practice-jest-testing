@@ -84,11 +84,13 @@ test('test chainage', () => {
 })
 
 
-const summarize = (list) => list.reduce( (acc,val) =>  acc , 0 )
+const summarize = (list) => list.reduce( (acc,val) =>  acc + val , 0 )
 
 test('should add all number in array', () => {
     expect(summarize(numbers) ).toBe(15)
 })
+
+const factoriel = (list) => list.reduce( (acc, val) => acc * val , 1)
 
 test('factorial all number in array', () => {
     expect(factoriel(numbers) ).toBe(120)
@@ -120,3 +122,6 @@ var pilots = [
 ];
 
 // We need to know the total years of experience of all of them
+test('should be the sum af years of experience', () => {
+    expect(pilots.reduce( (acc, val) => acc + val.years , 0)).toBe(82)
+})
