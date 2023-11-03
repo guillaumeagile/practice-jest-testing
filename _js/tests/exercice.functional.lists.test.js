@@ -62,12 +62,26 @@ test('should return a list of Ids', () => {
     expect(listOfIds2(officers)).toStrictEqual(officersId2)
 })
 
-const filtrerLesPairs = (list) => list;
+const filtrerLesPairs = (list) => list.filter(e => e % 2 === 0);
 
 test('should filter pairs', () => {
-    expect(toutMultiplierParN(numbers, 5) ).toEqual([5,10,15,20,25])
+    expect(filtrerLesPairs(numbers) ).toEqual([2, 4])
 })
 
+const filtrerMatricule = (list) => list.filter(e => e.id > 30)
+
+test('should filter matricule', () => {
+    expect(filtrerMatricule(officers) ).toEqual([2, 4])
+})
+
+var officersIdSup30 = [
+    { id: 56 },
+    { id: 88 }
+];
+test('test chainage', () => {
+    expect(listOfIds2(filtrerMatricule(officers)) ).toEqual(officersIdSup30)
+    expect(officers.filter(e => e.id > 30).flatMap(e => [{"id": e.id}])).toEqual(officersIdSup30)
+})
 
 
 const summarize = (list) => list.reduce( (acc,val) =>  acc , 0 )
