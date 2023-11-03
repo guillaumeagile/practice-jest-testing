@@ -15,7 +15,11 @@ test('imprime les noms', () => {
 
 const numbers = [1, 2, 3, 4, 5];
 
-const toutMultiplierPar2 = (list) => list;
+const toutMultiplierPar2 = (list) => list.map((e) => e*2);
+
+test('should multiply by two', () => {
+    expect(toutMultiplierPar2(numbers) ).toEqual([2, 4, 6, 8, 10])
+})
 
 const toutMultiplierParN = (list, n) => list;
 
